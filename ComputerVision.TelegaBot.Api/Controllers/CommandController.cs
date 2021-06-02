@@ -20,12 +20,12 @@ namespace ComputerVision.TelegaBot.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ProcessCommand([FromBody] Update update)
+        public async Task<IActionResult> ProcessCommand([FromBody]Update update)
         {
-            var client = new TelegramBotClient(_config.Key);
-            var hook = $"{_config.ApiUrl}api/v1/command";
+            var client = new TelegramBotClient("1883736635:AAGdnxmgH2siSC4TZCAhzod8ihk1q2PJfHE");
+            //var hook = $"https://pistroonbotapp.azurewebsites.net/api/v1/Command";
 
-            await client.SetWebhookAsync(hook);
+            //await client.SetWebhookAsync(hook);
 
             await client.SendTextMessageAsync(update.Message.Chat.Id, "Suka?");
             return Ok();
